@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #2f2f2f;
+    font-family: roboto;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden;
+}
+
+.container .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 60px;
+    flex-direction: column;
+    padding-bottom: 30px;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.container:nth-child(2) .content{
+    background-image: url('img/img1.jpg');
+}
+
+.container:nth-child(3) .content{
+    background-image: url('img/img2.jpg');
+}
+
+.container:nth-child(4) .content{
+    background-image: url('img/img3.jpg');
+}
+
+.container:nth-child(5) .content{
+    background-image: url('img/img4.jpg');
+}
+
+.container::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .1);
+    z-index: -1;
+}
+
+.container .content img{
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.container .content h2,
+.container .content p{
+    font-size: 35px;
+    text-transform: capitalize;
+    background: #ffeaeacc;
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.container .content p{
+    font-size: 16px;
+    text-align: justify;
+}
+
+.content.rotate{
+    position: fixed;
+    animation: rotate 2s forwards 1;
+}
+
+.content.rotate-back{
+    position: fixed;
+    animation: rotate-back 2s forwards 1;
+}
+
+
+@keyframes rotate{
+    0%{
+        transform: rotateY(0deg) scale(1);
+    }
+    75%{
+        transform: rotateY(200deg) scale(0.7);
+    }
+    100%{
+        transform: rotateY(0deg) scale(1);
+    }
+}
+
+
+@keyframes rotate-back{
+    0%{
+        transform: rotateY(0deg) scale(1);
+    }
+    75%{
+        transform: rotateY(-200deg) scale(0.7);
+    }
+    100%{
+        transform: rotateY(0deg) scale(1);
+    }
+}
+
+.navigation-btn{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 150px;
+    height: 60px;
+    display: flex;
+    background: #000;
+    z-index: 9;
+}
+
+.navigation-btn span{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    font-size: 50px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.navigation-btn span:last-child{
+    background: #fff;
+    color: #000;
+}
