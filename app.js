@@ -6,14 +6,14 @@ const preBtn = document.querySelector('.pre-btn');
 let i = 0;
 
 window.onload = () => {
-    window.scrollTo(window.innerWidth*i, 0);
+    window.scrollTo(0, 0);
 }
 
 const slideNxt = () => {
     if(i < 3 && !nxtBtn.className.includes('disable')){
         content[i].classList.add('rotate');
         content[i+1].classList.add('rotate');
-        
+
         setTimeout(() => {
             content.map(item => item.className = 'content');
             nxtBtn.classList.remove('disable');
@@ -27,11 +27,11 @@ const slideNxt = () => {
     }
 }
 
-const slidePre = () => {
+const slidepre = () => {
     if(i > 0 && !preBtn.className.includes('disable')){
         content[i].classList.add('rotate-back');
         content[i-1].classList.add('rotate-back');
-        
+
         setTimeout(() => {
             content.map(item => item.className = 'content');
             nxtBtn.classList.remove('disable');
@@ -46,11 +46,11 @@ const slidePre = () => {
 }
 
 nxtBtn.addEventListener('click', () => {
-    slideNxt();
+    slideNxt()
     nxtBtn.classList.add('disable');
 })
 
 preBtn.addEventListener('click', () => {
-    slidePre();
+    slidepre();
     preBtn.classList.add('disable');
 })
